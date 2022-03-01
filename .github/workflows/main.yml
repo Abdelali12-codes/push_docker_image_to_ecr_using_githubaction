@@ -45,7 +45,7 @@ jobs:
       env:
         ECR_REGISTRY: 080266302756.dkr.ecr.eu-west-3.amazonaws.com
         ECR_REPOSITORY: nginx-github-ecr
-        IMAGE_TAG: ${ steps.vars.outputs.sha_short }
+        IMAGE_TAG: ${{ steps.vars.outputs.sha_short }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
